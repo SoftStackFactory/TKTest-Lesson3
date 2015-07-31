@@ -17,6 +17,15 @@ angular.module('RESTConnection', [])
     return $http.post(getUrl()+"login",user);
   };
 
+  service.logout = function(token) {
+    return $http({
+        url: getUrl()+"logout",
+        method: "POST",
+        headers: {
+            'Authorization': token
+        }
+     });
+  };
 }])
 
 .service('ServerQuestionService', ['$http', 'ENDPOINT_URL',function ($http,  ENDPOINT_URL) {
