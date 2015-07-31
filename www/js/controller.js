@@ -109,11 +109,22 @@ function($scope, $state, $ionicHistory, ServerQuestionService, TKQuestionsServic
     
     $scope.logout = function()
     {
-        $ionicHistory.nextViewOptions({
-          historyRoot: true,
-          disableBack: true
+        UserService.logout($window.localStorage.token)
+        .then(function(response) {
+            //The successful code for logout is 204
+            if(response.status === 204)
+            {
+                $ionicHistory.nextViewOptions({
+                  historyRoot: true,
+                  disableBack: true
+                });
+                $state.go('landing');
+            }else {
+                 alert("Could not logout at this moment, try again.");
+            }
+        }, function(response) {
+            alert("Could not logout at this moment, try again.");
         });
-        $state.go('landing');
     };
     
     //Get Questions Initially if they are not already stored
