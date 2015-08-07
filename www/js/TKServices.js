@@ -1,4 +1,4 @@
-angular.module('TKQuestionsModule', [])
+angular.module('TKServicesModule', [])
 .service('TKQuestionsService', function () {
     var service = this;
     var questions = [];
