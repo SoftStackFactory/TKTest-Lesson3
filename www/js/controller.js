@@ -104,8 +104,10 @@ function($scope, $state, UserService, $ionicHistory, $window) {
     }
 }])
 
-.controller('LobbyCtrl',['$scope', '$state', '$ionicHistory', 'ServerQuestionService', 'TKQuestionsService', '$window', 
-function($scope, $state, $ionicHistory, ServerQuestionService, TKQuestionsService, $window) {
+.controller('LobbyCtrl',['$scope', '$state', '$ionicHistory', 'UserService', '$window', 
+'ServerQuestionService', 'TKQuestionsService',  
+function($scope, $state, $ionicHistory, UserService, $window,
+ServerQuestionService, TKQuestionsService) {
     
     $scope.logout = function()
     {
